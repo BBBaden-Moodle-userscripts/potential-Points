@@ -3,7 +3,7 @@
 // @namespace   potential Points
 // @match       https://moodle.bbbaden.ch/course/user.php*
 // @match       https://moodle.bbbaden.ch/grade/report/user/index.php*
-// @version     6.0.0
+// @version     6.0.1
 //
 // @downloadURL https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/potential_points.user.js
 // @updateURL   https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/potential_points.user.js
@@ -75,9 +75,9 @@ function colorRow (htmlTableRow, color) {
 function colorPercentage (htmlTableRow, percentage) {
     if (percentage == 100) {
         colorRow(htmlTableRow, colorGreen);
-    } else if (percentage > 75) {
+    } else if (percentage > 60) {
         colorRow(htmlTableRow, colorYellow);
-    } else if (percentage > 50) {
+    } else if (percentage > 30) {
         colorRow(htmlTableRow, colorOrange);
     } else {
         colorRow(htmlTableRow, colorRed);
