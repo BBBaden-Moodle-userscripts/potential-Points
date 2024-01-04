@@ -3,7 +3,7 @@
 // @namespace   potential Points
 // @match       https://moodle.bbbaden.ch/course/user.php*
 // @match       https://moodle.bbbaden.ch/grade/report/user/index.php*
-// @version     6.0.1
+// @version     6.0.2
 //
 // @downloadURL https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/potential_points.user.js
 // @updateURL   https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/potential_points.user.js
@@ -56,7 +56,7 @@ const module_name = MyTableUtils.getModuleTitle(textTable);
 const table_columns = MyTableUtils.getTableColumns(textTable);
 // ----------------------------------------------
 
-console.log(textTable);
+// console.log(textTable);
 
 // Highlight empty cells by changing there icon
 function changeIcon (icon, iconURL) {
@@ -111,6 +111,6 @@ textTable.forEach(textRow => {
     
     if (textRow[0] == "" || String(textRow[0]).includes("HZ") || String(textRow[0]).includes("Nicht bewertet")) return;
 
-    console.log(MyTableUtils.porcesseRow(textRow).name, MyTableUtils.porcesseRow(textRow), textRow);
+    // console.log(MyTableUtils.porcesseRow(textRow).name, MyTableUtils.porcesseRow(textRow), textRow);
     processRow(textRow);
 });
