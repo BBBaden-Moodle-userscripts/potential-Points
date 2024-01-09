@@ -3,7 +3,7 @@
 // @namespace   potential Points
 // @match       https://moodle.bbbaden.ch/course/user.php*
 // @match       https://moodle.bbbaden.ch/grade/report/user/index.php*
-// @version     6.0.2
+// @version     6.0.3
 //
 // @downloadURL https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/potential_points.user.js
 // @updateURL   https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/potential_points.user.js
@@ -106,10 +106,10 @@ function changeTitleColor (htmlTableRow) {
 
 
 textTable.forEach(textRow => {
-    const index = textTable.indexOf(textRow);
-    if (index == 0 || index == 1 || index == 2 || index == 3 || index == 4) return;
-    
-    if (textRow[0] == "" || String(textRow[0]).includes("HZ") || String(textRow[0]).includes("Nicht bewertet")) return;
+    if (textRow[1] == undefined || textRow[0] == "" ||
+        String(textRow[0]).includes("HZ") || String(textRow[0]).includes("Nicht bewertet") ||
+        String(textRow[0]).includes("Bewertungsaspekt") || String(textRow[0]).includes("Kurs gesamt")
+    ) return;
 
     // console.log(MyTableUtils.porcesseRow(textRow).name, MyTableUtils.porcesseRow(textRow), textRow);
     processRow(textRow);
