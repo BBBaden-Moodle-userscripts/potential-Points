@@ -13,7 +13,7 @@
 // @description potential Points for moodle.bbbaden
 // @author      black-backdoor
 //
-// @icon        https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/icon.svg
+// @icon        https://github.com/BBBaden-Moodle-userscripts/potential-Points/icon/raw/main/icon.png
 //
 // @run-at      document-end
 // @grant       GM_getValue
