@@ -1,9 +1,10 @@
 // ==UserScript==
-// @name        potential Points
-// @namespace   potential Points
+// @name        potential-Points
+// @namespace   potential-Points
 // @match       https://moodle.bbbaden.ch/course/user.php*
 // @match       https://moodle.bbbaden.ch/grade/report/user/index.php*
-// @version     6.0.3
+// @match       https://moodle.bbbaden.ch/userscript/extensions
+// @version     6.1.0
 //
 // @downloadURL https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/potential_points.user.js
 // @updateURL   https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/potential_points.user.js
@@ -23,8 +24,33 @@
 // @grant       GM_info
 //
 // @require     https://github.com/BBBaden-Moodle-userscripts/potentialPointsExtractLib/raw/main/extract-v1.lib.user.js
+// @require     https://github.com/black-backdoor/DataBridge/raw/main/DataBridge.lib.user.js
 // ==/UserScript==
 
+
+if(window.location.href == "https://moodle.bbbaden.ch/userscript/extensions"){
+    //------------------------ DataBridge ------------------------
+    // Create a new DataBridge
+    const UserScriptManagerCon = new Connection("BBBUserScriptManager");
+
+    // Register an event listener for the extensionInstalled event
+    Protocol.registerMessageType(UserScriptManagerCon, 'getInstalled', function (msg) {
+        UserScriptManagerCon.send({
+            "header": {
+                "receiver": msg.header.sender,
+                "protocolVersion": "1.0",
+                "messageType": "extensionInstalled",
+            },
+            "body": {
+                "script": {
+                    "scriptName": GM_info.script.name,
+                    "scriptVersion": GM_info.script.version,
+                }
+            }
+        });
+    });
+    return;
+}
 
 // ----------------- CONFIG -----------------
 // color if cell is empty
