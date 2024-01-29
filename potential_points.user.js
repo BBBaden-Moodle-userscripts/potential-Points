@@ -4,7 +4,7 @@
 // @match       https://moodle.bbbaden.ch/course/user.php*
 // @match       https://moodle.bbbaden.ch/grade/report/user/index.php*
 // @match       https://moodle.bbbaden.ch/userscript/extensions
-// @version     6.1.0
+// @version     6.2.0
 //
 // @downloadURL https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/potential_points.user.js
 // @updateURL   https://github.com/BBBaden-Moodle-userscripts/potential-Points/raw/main/potential_points.user.js
@@ -95,6 +95,9 @@ function changeIcon (icon, iconURL) {
 function colorRow (htmlTableRow, color) {
     htmlTableRow.forEach(cell => {
         cell.style.backgroundColor = color;
+
+        // add a class for integration with MidnightMoodle
+        cell.classList.add('pp-grade');
     });
 }
 
